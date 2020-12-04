@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.kabir.openshift-examples</groupId>
+    <artifactId>reactive-messaging-hello-world-kafka</artifactId>
+    <version>1.0</version>
+    <packaging>war</packaging>
+
+    <name>reactive-messaging-hello-world-kafka</name>
+
+    <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <version.org.eclipse.microprofile.reactive-messaging.api>1.0</version.org.eclipse.microprofile.reactive-messaging.api>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.eclipse.microprofile.reactive.messaging</groupId>
+            <artifactId>microprofile-reactive-messaging-api</artifactId>
+            <version>${version.org.eclipse.microprofile.reactive-messaging.api}</version>
+            <scope>provided</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>*</groupId>
+                    <artifactId>*</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>jakarta.platform</groupId>
+            <artifactId>jakarta.jakartaee-api</artifactId>
+            <version>8.0.0</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>2.3</version>
+                <configuration>
+                    <warName>ROOT</warName>
+                    <webXml></webXml>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
